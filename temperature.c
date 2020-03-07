@@ -31,10 +31,10 @@ int get_temperature(char temp_string[50])
 	char                 *p;
  	int                  fd=-1;
 	int                  found=0;
-    float                temp;
-    char    	     path[150]="/sys/bus/w1/devices/";
-    DIR                  *openfile;
-    struct dirent        *readfile;
+    	float                temp;
+    	char    	     path[150]="/sys/bus/w1/devices/";
+    	DIR                  *openfile;
+    	struct dirent        *readfile;
 	//char                 temp_string[50];
 	
 	/*获取path子目录下的所由文件和目录的列表，如果path是个文件则返回值为NULL,

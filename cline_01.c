@@ -21,17 +21,17 @@ int main(int argc,char **argv)
 	struct sockaddr_in               serv_addr;
 	int                              wrt_rt=0;
 	int                              read_rt=0;
-	char				             buf_r[50];
+	char				 buf_r[50];
 	int                              ip_port;
 	int                              port;
 	char*                            ip;
 	
-	int								 head_tag;//结构体封装内容
-	char							 separator='/';
-	char							 type[10]="char";
-	int								 length;
-	char							 value_temperat[50];
-	tlv								 pack;
+	int				 head_tag;//结构体封装内容
+	char				 separator='/';
+	char				 type[10]="char";
+	int				 length;
+	char				 value_temperat[50];
+	tlv				 pack;
 	
 	/*socket指明大方面通信协议IPV4/6、小方面通信类型TCP/UDP*/
 	sockfd =socket(AF_INET, SOCK_STREAM, 0);
@@ -103,7 +103,8 @@ int main(int argc,char **argv)
 	printf("DS18B20 temperature is:%s\n",value_temperat);
 	
 	pack_tlv(head_tag,separator,type,24,value_temperat,&pack);
-	wrt_rt=write(sockfd,pack,sizeof(pack));
+
+	wrt_rt=write(sockfd,&pack,sizeof(pack));
 
 	if(wrt_rt<0)
 	{
